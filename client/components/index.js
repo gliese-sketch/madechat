@@ -1,7 +1,5 @@
-// Barell imports
-import Chat from "./Chat";
-import Messages from "./Messages";
 import Inputs from "./Inputs";
 import SignUp from "./SignUp";
+import { Chat, Messages, NewUser, Typing } from "./Messages";
 
-export { Chat, Messages, Inputs, SignUp };
+export { Inputs, SignUp, Chat, Messages, NewUser, Typing };
