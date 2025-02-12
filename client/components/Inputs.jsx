@@ -6,6 +6,18 @@ function Inputs() {
   const [input, setInput] = useState("");
   const inputFile = useRef(null);
 
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+
+    // Base 64 conversion
+    var reader = new FileReader();
+    reader.onloadend = function () {
+      console.log("RESULT", reader.result);
+    };
+
+    reader.readAsDataURL(file);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -40,10 +52,11 @@ function Inputs() {
           name="file"
           accept="image/png, image/gif, image/jpeg"
           ref={inputFile}
+          onChange={handleImageUpload}
           hidden
         />
 
-        <Button variant="faded" className="h-auto" type="submit">
+        <Button color="primary" variant="flat" className="h-auto" type="submit">
           {!input ? <ArrowUpFromLine /> : <SendHorizontalIcon />}
         </Button>
       </div>
