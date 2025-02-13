@@ -30,7 +30,7 @@ function Chat({ message, self }) {
 
         {/* Show when image */}
         {message.type === "image" && (
-          <Image src={message.content} alt="Image message" widht={400} />
+          <Image src={message.content} alt="Image message" width={400} />
         )}
       </CardBody>
     </Card>

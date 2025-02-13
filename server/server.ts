@@ -32,8 +32,9 @@ io.on("connection", (socket) => {
   });
 
   // When a user is typing
-  socket.on("typing", (name) => {
-    socket.broadcast.emit("user_typing", name);
+  socket.on("typing", (obj) => {
+    console.log(obj);
+    socket.broadcast.emit("user_typing", obj);
   });
 });
 

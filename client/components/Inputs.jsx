@@ -31,6 +31,8 @@ function Inputs({ socket, name, setMessages }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    socket.emit("typing", { name: name, status: false }); // Typing stopped
+
     if (!input) {
       console.log("File upload functionality");
       inputFile.current.click();
@@ -63,7 +65,10 @@ function Inputs({ socket, name, setMessages }) {
           size="lg"
           type="text"
           value={input}
-          onChange={(e) => setInput(e.target.value)}
+          onChange={(e) => {
+            setInput(e.target.value);
+            socket.emit("typing", { name: name, status: true }); // Typing started
+          }}
           autoComplete="off"
         />
 
